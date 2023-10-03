@@ -5,7 +5,7 @@ node_modules/
 dist/
 
 #image files
-static/images/
+static/images/*
 
 # IDE and editor specific files
 .vscode/
