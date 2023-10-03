@@ -200,3 +200,45 @@ input[type="text"]:focus {
 .message p{
   color: aquamarine;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.modal-container {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  height: 200px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  border-radius: 25px;
+  font-size: 1.1rem;
+}
+
+#modal-title{
+  color: rgb(245, 59, 59);
+}
+
+#modal-content{
+  color: rgb(101, 90, 90);
+  font-size: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: x-large;
+  padding: 10px;
+  cursor: pointer;
+}

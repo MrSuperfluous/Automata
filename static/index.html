@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="logo.png" type="image/png" sizes="16x16" />
-    <script src="script.js"></script>
+    
     <title>Automata Form Autofill</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -35,6 +35,14 @@
       <button class="fill-details-btn" onclick="fillForm()">
         Fill Details
       </button>
+      <div id="myModal" class="modal">
+        <div class="modal-container">
+          <button class="close" id="closeModalBtn">&times;</button>
+          <h2 id="modal-title">Modal Title</h2>
+          <p id="modal-content">This is some modal content.</p>
+        </div>
+      </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>

@@ -37,6 +37,28 @@ function showSubmittedFields() {
   });
 }
 
+const closeModalBtn = document.querySelector("#closeModalBtn");
+// console.log(closeModalBtn);
+const modal = document.getElementById("myModal");
+
+//Open Modal when showModal function is called
+function showModal(message) {
+  document.getElementById("modal-title").innerText = "Error";
+  document.getElementById("modal-content").innerText = message;
+  modal.style.display = "block";
+}
+
+// Close the modal when the close button (×) is clicked
+closeModalBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close the modal when the user clicks outside of it
+window.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
 function fillForm() {
   var loadingOverlay = document.querySelector(".loading-overlay");
@@ -149,14 +171,14 @@ function fillForm() {
         </body>
         </html>`;
     } else {
-      alert("Error: " + xhr.statusText);
+      showModal(xhr.statusText)
     }
   };
 
   xhr.onerror = function () {
     loadingOverlay.style.display = "none";
 
-    alert("Error: Unable to make the request.");
+    showModal("Unable to make the request.")
   };
 
   xhr.send(JSON.stringify({ link: formUrl }));
