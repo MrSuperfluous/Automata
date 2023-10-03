@@ -4,6 +4,9 @@ node_modules/
 # Output files
 dist/
 
+#image files
+static/images/
+
 # IDE and editor specific files
 .vscode/
 .idea/

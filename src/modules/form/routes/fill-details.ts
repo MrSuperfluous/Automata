@@ -41,7 +41,7 @@ router.post(
 
       await deleteFiles(); // deleting old images
 
-      const browser = await puppeteer.launch({ headless: "new" });
+      const browser = await puppeteer.launch({headless: "new", args: ['--no-sandbox', '--disable-setuid-sandbox']});
       const page = await browser.newPage();
       await page.goto(link);
       await page.setViewport({ width: 1920, height: 1080 });
@@ -89,7 +89,6 @@ router.post(
           await waitForSelectorwithRetry(page, inputSelector, 3, 100);
           await page.click(inputSelector);
         }
-
         await page.screenshot({ path: `static/images/fields${x + 1}.jpg` });
       }
 
