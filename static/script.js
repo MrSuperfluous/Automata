@@ -1,3 +1,22 @@
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const formUrlInput = document.getElementById("form-url");
+  const fillDetailsButton = document.querySelector(".fill-details-btn");
+
+  // Function to enable or disable the button based on the input field value
+  function toggleFillButton() {
+    if (formUrlInput.value.trim() === "") {
+      fillDetailsButton.disabled = true;
+    } else {
+      fillDetailsButton.disabled = false;
+    }
+  }
+  formUrlInput.addEventListener("input", toggleFillButton);
+
+  toggleFillButton();
+});
+
 function validateUrl(url) {
   return /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/.test(url);
 }
@@ -17,6 +36,7 @@ function showSubmittedFields() {
     div.appendChild(anchor);
   });
 }
+
 
 function fillForm() {
   var loadingOverlay = document.querySelector(".loading-overlay");

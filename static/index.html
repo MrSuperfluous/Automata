@@ -9,7 +9,7 @@
     <title>Automata Form Autofill</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
+  
   <body>
     <div class="loading-overlay">
       <div class="lds-ring">
@@ -27,9 +27,9 @@
 
     <div class="container">
       <img src="logo.png" alt="Automata Logo" />
-      <h1>Automata</h1>
-      <p>Enter the URL of the Google form to be autofilled:</p>
-      <input type="text" id="form-url" placeholder="Enter URL" />
+      <h1 class="bounce-text">Automata</h1>
+      <p class="typing-text">Enter the URL of the Google form to be autofilled:</p>
+      <input type="text" id="form-url" class="typing-input" placeholder="Enter URL" />
       <div class="error-message" id="error-message"></div>
       <br />
       <button class="fill-details-btn" onclick="fillForm()">

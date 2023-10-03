@@ -21,7 +21,57 @@ body {
 img {
   max-width: 100px;
   border-radius: 50%;
+  animation: rotate 5s linear infinite; /* Rotate animation */
+  animation: colorChange 3s ease-in-out infinite alternate; /* Color change animation */
 }
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Text bounce animation */
+.bounce-text {
+  animation: bounceText 1s ease-in-out;
+}
+
+@keyframes bounceText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+}
+/* Typing text into an input field animation */
+.typing-input {
+  font-size: 18px;
+  border: none;
+  padding: 12px;
+  width: 80%;
+  animation: typeInput 5s steps(40) forwards;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #4caf50; /* Simulate cursor */
+  box-sizing: border-box;
+}
+
+@keyframes typeInput {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 
 h1 {
   margin-bottom: 30px;
@@ -59,13 +109,28 @@ input[type="text"]:focus {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Add transform */
+  animation: pulse 2s ease-in-out infinite;
+
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .fill-details-btn:hover {
   background-color: #45a049;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Scale up on hover */
 }
+
 
 .error-message {
   color: #ff0000;
