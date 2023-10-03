@@ -1,4 +1,4 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import path from "path";
 import { AppConfig } from "./config/config";
 import { errorHandler } from "./middlewares/error-handler";
@@ -6,12 +6,12 @@ import { fillDetails } from "./modules/form/routes/fill-details";
 
 require("dotenv").config();
 
-let config = new AppConfig();
-config.setPort(process.env.PORT);
+let config: AppConfig = new AppConfig();
+config.setPort(process.env.PORT as string);
 
 const app = express();
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.sendFile(path.resolve(__dirname, "../static", "index.html"));
 });
 

@@ -16,12 +16,9 @@ RUN apt-get update && apt-get install gnupg wget -y && \
 
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN npm ci --production
+RUN npm install
 
 COPY . .
-
-# Install TypeScript globally
-RUN npm install -g typescript
 
 # Build the TypeScript code
 RUN tsc
