@@ -21,8 +21,8 @@ body {
 img {
   max-width: 100px;
   border-radius: 50%;
-  animation: rotate 5s linear infinite; /* Rotate animation */
-  animation: colorChange 3s ease-in-out infinite alternate; /* Color change animation */
+  animation: rotate 5s linear infinite; 
+  animation: colorChange 3s ease-in-out infinite alternate; 
 }
 
 @keyframes colorChange {
@@ -50,7 +50,7 @@ img {
     transform: translateY(-10px);
   }
 }
-/* Typing text into an input field animation */
+
 .typing-input {
   font-size: 18px;
   border: none;
@@ -59,7 +59,7 @@ img {
   animation: typeInput 5s steps(40) forwards;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid #4caf50; /* Simulate cursor */
+  border-right: 2px solid #4caf50; 
   box-sizing: border-box;
 }
 
@@ -109,7 +109,7 @@ input[type="text"]:focus {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Add transform */
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; 
   animation: pulse 2s ease-in-out infinite;
 
 }
@@ -128,7 +128,11 @@ input[type="text"]:focus {
 .fill-details-btn:hover {
   background-color: #45a049;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05); /* Scale up on hover */
+  transform: scale(1.05);
+}
+.fill-details-btn:disabled {
+  opacity: 0.8; 
+  cursor: not-allowed;  
 }
 
 
