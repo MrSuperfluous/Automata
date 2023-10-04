@@ -15,7 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
   formUrlInput.addEventListener("input", toggleFillButton);
 
   toggleFillButton();
+
+      
+      formUrlInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && formUrlInput.value.trim() !== "") {
+          event.preventDefault(); // Prevent the default form submission
+          fillForm(); // Call the fillForm function when Enter is pressed and URL is not empty
+        }
+      });
+  
 });
+
+
+
 
 function validateUrl(url) {
   return /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/.test(url);
