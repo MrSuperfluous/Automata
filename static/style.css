@@ -19,10 +19,15 @@ body {
 }
 
 img {
-  max-width: 100px;
-  border-radius: 50%;
-  animation: rotate 5s linear infinite; /* Rotate animation */
-  animation: colorChange 3s ease-in-out infinite alternate; /* Color change animation */
+  height: 100px;
+  width: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border-radius: 50%; */
+  /* animation: rotate 5s linear infinite;  /*Rotate Animation*/
+  /* animation: colorChange 3s ease-in-out infinite alternate;  */ 
 }
 
 @keyframes colorChange {
