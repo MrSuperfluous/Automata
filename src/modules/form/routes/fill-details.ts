@@ -6,9 +6,15 @@ import { delay } from "../utils/delay";
 import { validateRequest } from "../../../middlewares/validate-request";
 import { deleteFiles } from "../../../utils/delete-files";
 import { getImageUrl } from "../utils/attach-url";
+import { NotFoundError } from "../../../utils/errors/not-found-error";
 const router = express.Router();
 
-const waitForSelectorwithRetry = async ( page : Page  , selector : string , maxRetries: number , delaytime:number ):Promise<void> =>{
+const waitForSelectorwithRetry = async (
+  page: Page,
+  selector: string,
+  maxRetries: number,
+  delaytime: number
+): Promise<void> => {
   let retries = 0;
   while (retries < maxRetries) {
     try {
@@ -16,13 +22,13 @@ const waitForSelectorwithRetry = async ( page : Page  , selector : string , maxR
       return;
     } catch (error) {
       retries++;
-      await page.waitForTimeout(delaytime);
+      await delay(delaytime);
     }
   }
-  throw new Error(`Element ${selector} not found after ${maxRetries} retries.`);
-
-
-}
+  throw new NotFoundError(
+    `Element ${selector} not found after ${maxRetries} retries.`
+  );
+};
 
 router.post(
   "/api/fill-details",
@@ -32,16 +38,18 @@ router.post(
       .withMessage("Field link must be specified")
       .isURL()
       .withMessage("Please enter a valid URL"),
-
-    validateRequest,
   ],
+  validateRequest,
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { link } = req.body;
 
       await deleteFiles(); // deleting old images
 
-      const browser = await puppeteer.launch({headless: "new", args: ['--no-sandbox', '--disable-setuid-sandbox']});
+      const browser = await puppeteer.launch({
+        headless: "new",
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      });
       const page = await browser.newPage();
       await page.goto(link);
       await page.setViewport({ width: 1920, height: 1080 });
@@ -93,7 +101,7 @@ router.post(
       }
 
       await waitForSelectorwithRetry(page, Constants.submitSelector, 3, 100);
-       await page.click(Constants.submitSelector);
+      await page.click(Constants.submitSelector);
 
       await page.screenshot({
         path: "static/images/finalSubmission.jpg",

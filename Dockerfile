@@ -1,5 +1,3 @@
-# Filename: Dockerfile
-
 FROM node:slim
 
 # We don't need the standalone Chromium
@@ -13,6 +11,9 @@ RUN apt-get update && apt-get install gnupg wget -y && \
     apt-get update && \
     apt-get install google-chrome-stable -y --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
+
+# Install TypeScript
+RUN npm install -g typescript
 
 WORKDIR /usr/src/app
 COPY package*.json ./
