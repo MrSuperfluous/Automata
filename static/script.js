@@ -141,6 +141,7 @@ function fillForm() {
         .wrapper {
           display: flex;
           flex-direction: column;
+          gap : 2vh;
           align-items: center;
         }
         .success-icon {
@@ -162,6 +163,44 @@ function fillForm() {
             cursor: pointer;
             text-decoration: none;
         }
+        #hello {
+          display: flex;
+          gap: 14px;
+          overflow-x: auto;
+          -ms-overflow-style: none; /* Hide the scrollbar for MS Edge */
+          scrollbar-width: none; /* Hide the scrollbar for Mozilla Firefox */
+        
+          margin: 0 auto 0 auto;
+          width: 25vw;
+          height: fit-content;
+          background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x, linear-gradient(90deg, #333 50%, transparent 0) repeat-x, linear-gradient(0deg, #333 50%, transparent 0) repeat-y, linear-gradient(0deg, #333 50%, transparent 0) repeat-y;
+          background-size: 8px 1px, 8px 1px, 1px 8px, 1px 8px;
+          background-position: 0 0, 0 100%, 0 0, 100% 0;
+          cursor: pointer;
+          // border: solid #FFFFFF  0.5px;
+        }
+        #hello {
+          -webkit-animation: linearGradientMove 0.3s infinite linear;
+                  animation: linearGradientMove 0.3s infinite linear;
+        }
+        @-webkit-keyframes linearGradientMove {
+          100% {
+            background-position: 4px 0, -4px 100%, 0 -4px, 100% 4px;
+          }
+        }
+        
+        @keyframes linearGradientMove {
+          100% {
+            background-position: 4px 0, -4px 100%, 0 -4px, 100% 4px;
+          }
+        }
+        
+        #hello::-webkit-scrollbar {
+          display: none; /* Hide the scrollbar on Webkit based browsers (Chrome, Safari, etc) */
+          -webkit-overflow-scrolling: touch; /* On touch screens the content continues to scroll for a while after finishing the scroll gesture */
+        }
+
+
         .btn:hover {
             background-color: #0056b3;
         }
