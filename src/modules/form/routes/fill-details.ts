@@ -108,7 +108,6 @@ router.post(
       
       await page.waitForNavigation({ waitUntil: 'networkidle0' });
       await page.screenshot({ path: 'static/images/Submitted.png' });
-      console.log(1);
       await page.close();
       await browser.close();
 
