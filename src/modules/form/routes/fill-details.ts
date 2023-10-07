@@ -97,15 +97,17 @@ router.post(
           await waitForSelectorwithRetry(page, inputSelector, 3, 100);
           await page.click(inputSelector);
         }
-        await page.screenshot({ path: `static/images/fields${x + 1}.jpg` });
       }
-
-      await waitForSelectorwithRetry(page, Constants.submitSelector, 3, 100);
-      await page.click(Constants.submitSelector);
-
       await page.screenshot({
         path: "static/images/finalSubmission.jpg",
+        fullPage: true
       });
+      await waitForSelectorwithRetry(page, Constants.submitSelector, 3, 100);
+      
+      await page.click(Constants.submitSelector);
+      
+      await page.waitForNavigation({ waitUntil: 'networkidle0' });
+      await page.screenshot({ path: 'static/images/Submitted.png' });
       await page.close();
       await browser.close();
 
